@@ -96,9 +96,33 @@
         .cta-button:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 15px 35px rgba(0, 230, 118, 0.7); }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); } 70% { box-shadow: 0 0 0 25px rgba(0, 230, 118, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); } }
         
-        /* BOTÓN DE PRUEBA ALTERNATIVO */
-        .trial-link { display: inline-block; margin-top: 20px; color: var(--primary); font-weight: bold; font-size: 1.2em; text-decoration: underline; transition: color 0.3s; }
-        .trial-link:hover { color: #d90429; }
+        /* BOTÓN DE PRUEBA ALTERNATIVO - MEJORADO */
+        .trial-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e90ff 0%, #0056b3 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 16px 35px;
+            font-size: 1.3em;
+            font-weight: 900;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
+            border: 2px solid #87cefa;
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+        .trial-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(30, 144, 255, 0.6);
+            background: linear-gradient(135deg, #0056b3 0%, #1e90ff 100%);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
 
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; border: 3px solid white; }
         .whatsapp-float:hover { transform: scale(1.15) translateY(-5px); }
@@ -149,7 +173,7 @@
         
         <button class="cta-button open-modal-btn" style="margin-top: 10px;">¡SÍ, QUIERO MI LICENCIA AHORA!</button>
         <br>
-        <a href="https://jmanuelp92-lgtm.github.io/PRUEBABINGO/">¿Aún tienes dudas? Descarga la versión de prueba GRATIS aquí 👇</a>
+        <a href="https://jmanuelp92-lgtm.github.io/PRUEBABINGO/" class="trial-btn" target="_blank">🎮 Probar Versión GRATIS Aquí 👇</a>
     </div>
 </div>
 
@@ -261,7 +285,7 @@
     <div class="cta-container">
         <button class="cta-button open-modal-btn">DESCARGAR MI SOFTWARE AHORA</button>
         <br>
-        <a href="https://jmanuelp92-lgtm.github.io/PRUEBABINGO/">O prueba la versión gratuita primero, clic aquí</a>
+        <a href="https://jmanuelp92-lgtm.github.io/PRUEBABINGO/" class="trial-btn" target="_blank">🎮 JUGAR DEMO GRATUITA AHORA</a>
         <p style="margin-top: 20px; color: #7f8c8d; font-size: 1.1em; font-weight: bold;">🔒 Compra 100% Segura y Garantizada</p>
     </div>
 </div>
