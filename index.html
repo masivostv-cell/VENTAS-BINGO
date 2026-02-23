@@ -96,17 +96,27 @@
         .cta-button:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 15px 35px rgba(0, 230, 118, 0.7); }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); } 70% { box-shadow: 0 0 0 25px rgba(0, 230, 118, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); } }
         
+        /* BOTÓN DE PRUEBA ALTERNATIVO */
+        .trial-link { display: inline-block; margin-top: 20px; color: var(--primary); font-weight: bold; font-size: 1.2em; text-decoration: underline; transition: color 0.3s; }
+        .trial-link:hover { color: #d90429; }
+
         .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; border: 3px solid white; }
         .whatsapp-float:hover { transform: scale(1.15) translateY(-5px); }
         .whatsapp-icon { width: 40px; height: 40px; fill: white; }
 
-        /* MODAL Y FORMULARIO */
+        /* MODALES */
         .modal-overlay { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(22, 33, 62, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
         .modal-content { background-color: #fff; padding: 40px; border-radius: 20px; width: 90%; max-width: 500px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5); text-align: left; border-top: 8px solid var(--success); }
         .close-modal { position: absolute; top: 15px; right: 20px; color: #aaa; font-size: 32px; font-weight: bold; cursor: pointer; transition: 0.2s; }
         .close-modal:hover { color: #333; }
         .modal-content h2 { color: var(--dark); margin-top: 0; border: none; text-align: center; padding-bottom: 0; font-size: 2em; }
         .modal-content p.form-subtitle { text-align: center; color: #7f8c8d; margin-bottom: 25px; font-size: 1.1em; }
+        
+        /* MODAL EXIT INTENT */
+        .exit-modal-content { border-top: 8px solid var(--accent); text-align: center; }
+        .exit-btn { display: block; background: linear-gradient(135deg, var(--accent) 0%, #e6c800 100%); color: var(--dark); padding: 18px; font-size: 1.3em; font-weight: 900; border-radius: 8px; text-decoration: none; text-transform: uppercase; margin-top: 20px; box-shadow: 0 8px 20px rgba(255, 222, 0, 0.4); transition: transform 0.2s; }
+        .exit-btn:hover { transform: translateY(-3px); }
+
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 800; color: #34495e; }
         .form-group input, .form-group select { width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px; box-sizing: border-box; font-size: 16px; font-family: inherit; transition: 0.3s; background: #fafafa; }
@@ -138,6 +148,8 @@
         </div>
         
         <button class="cta-button open-modal-btn" style="margin-top: 10px;">¡SÍ, QUIERO MI LICENCIA AHORA!</button>
+        <br>
+        <a href="https://drive.google.com/file/d/1AW-srTV2RH4Y9wIoFUN9_ZFDU66Ljy3f/view?usp=sharing" target="_blank" class="trial-link">¿Aún tienes dudas? Descarga la versión de prueba GRATIS aquí 👇</a>
     </div>
 </div>
 
@@ -248,6 +260,8 @@
 
     <div class="cta-container">
         <button class="cta-button open-modal-btn">DESCARGAR MI SOFTWARE AHORA</button>
+        <br>
+        <a href="https://drive.google.com/file/d/1AW-srTV2RH4Y9wIoFUN9_ZFDU66Ljy3f/view?usp=sharing" target="_blank" class="trial-link">O prueba la versión gratuita primero, clic aquí</a>
         <p style="margin-top: 20px; color: #7f8c8d; font-size: 1.1em; font-weight: bold;">🔒 Compra 100% Segura y Garantizada</p>
     </div>
 </div>
@@ -308,7 +322,20 @@
             <strong>¡Excelente! Tus datos están registrados.</strong>
             Redirigiendo a WhatsApp de manera segura para finalizar...
         </div>
+    </div>
+</div>
 
+<div id="exitModal" class="modal-overlay">
+    <div class="modal-content exit-modal-content">
+        <span class="close-modal" id="closeExitModalBtn">&times;</span>
+        <h2 style="color: var(--primary); font-size: 2.2em; margin-bottom: 5px;">¡ESPERA! 🛑</h2>
+        <h3 style="margin-top: 0; color: var(--secondary); font-size: 1.4em;">¿Aún no estás convencido?</h3>
+        <p style="font-size: 1.1em; color: #555; margin-bottom: 25px;">No te vayas sin probar la potencia de nuestra herramienta. Descarga ahora una <strong>versión de prueba 100% GRATIS</strong> y compruébalo tú mismo.</p>
+        
+        <a href="https://drive.google.com/file/d/1AW-srTV2RH4Y9wIoFUN9_ZFDU66Ljy3f/view?usp=sharing" target="_blank" class="exit-btn">
+            ⬇️ DESCARGAR PRUEBA GRATIS
+        </a>
+        <p style="margin-top: 15px; font-size: 0.9em; color: #888;">Seguro y libre de virus. Úsalo en tu próximo evento.</p>
     </div>
 </div>
 
@@ -327,8 +354,8 @@
         }, 1000);
     }
 
-    // 2. Lógica del Modal y Envío
-    const modal = document.getElementById("purchaseModal");
+    // 2. Lógica del Modal de Compra Principal
+    const purchaseModal = document.getElementById("purchaseModal");
     const openBtns = document.querySelectorAll(".open-modal-btn");
     const closeBtn = document.getElementById("closeModalBtn");
     const formContainer = document.getElementById("formContainer");
@@ -340,7 +367,7 @@
 
     openBtns.forEach(btn => {
         btn.addEventListener("click", () => {
-            modal.style.display = "flex";
+            purchaseModal.style.display = "flex";
             formContainer.style.display = "block";
             successMessage.style.display = "none";
             leadForm.reset();
@@ -350,9 +377,30 @@
         });
     });
 
-    closeBtn.addEventListener("click", () => modal.style.display = "none");
-    window.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });
+    closeBtn.addEventListener("click", () => purchaseModal.style.display = "none");
 
+    // 3. Lógica del Modal de Intención de Salida (Exit Intent)
+    const exitModal = document.getElementById("exitModal");
+    const closeExitBtn = document.getElementById("closeExitModalBtn");
+    let exitModalTriggered = false;
+
+    // Detectar cuando el cursor sale por la parte superior (en escritorio)
+    document.addEventListener("mouseleave", function(e) {
+        if (e.clientY < 0 && !exitModalTriggered) {
+            exitModal.style.display = "flex";
+            exitModalTriggered = true; // Solo lo mostramos una vez por sesión para no molestar
+        }
+    });
+
+    closeExitBtn.addEventListener("click", () => exitModal.style.display = "none");
+
+    // Cerrar modales si se hace clic afuera del contenido
+    window.addEventListener("click", (e) => { 
+        if (e.target === purchaseModal) purchaseModal.style.display = "none"; 
+        if (e.target === exitModal) exitModal.style.display = "none";
+    });
+
+    // 4. Lógica de Formularios y Envío
     countrySelect.addEventListener("change", function() {
         phonePrefix.value = this.options[this.selectedIndex].getAttribute("data-prefix") || "";
     });
@@ -381,7 +429,6 @@
             mode: 'no-cors',
             body: formData
         }).then(() => {
-            // DISPARAR EVENTO DE PIXEL DE FACEBOOK (LEAD)
             if (typeof fbq === 'function') {
                 fbq('track', 'Lead', {
                     content_name: 'Software de Bingo',
