@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     
@@ -18,23 +18,18 @@
             --action-btn: #25D366;
         }
 
-        /* Asegurarnos de que los bordes y paddings no alteren los tamaños */
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
-        /* Uso de 100dvh para adaptarse a las barras del navegador en móviles */
+        /* Ajuste estricto para que no se salga de la pantalla visible */
         body, html {
             margin: 0; 
             padding: 0; 
             font-family: Helvetica, Arial, sans-serif;
             background-color: #f0f0f0; 
-            height: 100%; /* Fallback */
-            height: 100dvh; /* Altura dinámica real */
+            height: 100%; 
             overflow: hidden; 
         }
 
-        /* Contenedor principal imitando un teléfono */
         .phone-container {
             max-width: 500px; 
             margin: 0 auto; 
@@ -48,7 +43,6 @@
             background-repeat: repeat;
         }
 
-        /* Cabecera estilo WhatsApp */
         .chat-header {
             background-color: var(--wa-header); color: white; padding: 12px 15px;
             display: flex; align-items: center; z-index: 10;
@@ -63,22 +57,20 @@
         .header-info h2 { margin: 0; font-size: 16px; font-weight: 600; }
         .header-info p { margin: 2px 0 0; font-size: 12px; color: #d1f4cc; }
 
-        /* Área de mensajes */
+        /* El área de chat ahora tiene un padding inferior gigante para que los mensajes no queden tapados por el botón flotante */
         .chat-body {
             flex: 1; overflow-y: auto; padding: 20px 15px;
+            padding-bottom: 130px; /* Espacio extra abajo */
             display: flex; flex-direction: column; scroll-behavior: smooth;
         }
 
-        /* Burbujas de chat */
         .message {
             max-width: 85%; margin-bottom: 12px; padding: 10px 12px;
             border-radius: 8px; font-size: 14.5px; line-height: 1.4; color: var(--wa-text);
             position: relative; animation: popIn 0.3s ease-out forwards;
             opacity: 0; transform: translateY(10px);
         }
-        @keyframes popIn {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes popIn { to { opacity: 1; transform: translateY(0); } }
 
         .received {
             background-color: var(--wa-received); align-self: flex-start;
@@ -100,45 +92,34 @@
             border-color: var(--wa-sent) transparent transparent transparent;
         }
 
-        .message img {
-            max-width: 100%; border-radius: 6px; margin-top: 5px;
-            display: block; border: 1px solid #eaeaea;
-        }
+        .message img { max-width: 100%; border-radius: 6px; margin-top: 5px; display: block; border: 1px solid #eaeaea; }
+        .time { display: block; font-size: 10px; color: var(--wa-time); text-align: right; margin-top: 4px; float: right; margin-left: 10px; }
         
-        .time {
-            display: block; font-size: 10px; color: var(--wa-time);
-            text-align: right; margin-top: 4px; float: right; margin-left: 10px;
-        }
-
-        /* Formato de texto */
         strong { font-weight: 600; }
         .price-strike { text-decoration: line-through; color: #888; font-size: 0.9em; }
         .price-highlight { color: #d32f2f; font-weight: bold; font-size: 1.2em; }
 
-        /* Indicador de escribiendo */
         .typing { display: none; align-self: flex-start; background: var(--wa-received); padding: 12px 15px; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
         .typing .dot { display: inline-block; width: 6px; height: 6px; background-color: #999; border-radius: 50%; margin-right: 3px; animation: bounce 1.3s linear infinite; }
         .typing .dot:nth-child(2) { animation-delay: -1.1s; }
         .typing .dot:nth-child(3) { animation-delay: -0.9s; margin-right: 0; }
         @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
 
-        /* FOOTER DE BOTONES FIJO Y VISIBLE SIEMPRE */
+        /* FOOTER FLOTANTE FORZADO HACIA ARRIBA */
         .chat-footer {
-            flex-shrink: 0;
+            position: absolute; /* Lo ancla a la pantalla, no al flujo del texto */
+            bottom: 0;
+            left: 0;
+            width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
-            /* Aumentamos el padding inferior para separar el botón del borde del teléfono */
-            padding: 15px 15px 25px 15px; 
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
-            z-index: 10;
-            min-height: 20px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            /* Aquí está la magia: 40px de espacio libre abajo, más el área segura del teléfono */
+            padding: 15px 15px calc(40px + env(safe-area-inset-bottom)) 15px; 
+            box-shadow: 0 -10px 25px rgba(0,0,0,0.1);
+            z-index: 100;
             border-top: 1px solid #e0e0e0;
         }
 
-        /* Botones de acción */
         .options-container { display: none; flex-direction: column; gap: 10px; width: 100%; animation: popIn 0.3s ease-out forwards; }
         .option-btn {
             width: 100%; background-color: #fff; border: 2px solid var(--action-btn); color: var(--action-btn);
@@ -148,7 +129,6 @@
         }
         .option-btn:active, .option-btn:hover { background-color: var(--action-btn); color: white; transform: scale(0.98); }
 
-        /* Botón final a WhatsApp real */
         .btn-whatsapp-real {
             display: block; width: 100%; background: var(--action-btn); color: white;
             text-decoration: none; padding: 18px 0; border-radius: 25px;
@@ -205,7 +185,6 @@
         return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
     }
 
-    // Scroll inteligente para mantener siempre el último mensaje a la vista
     function scrollToBottom() {
         setTimeout(() => {
             chatBody.scrollTop = chatBody.scrollHeight;
@@ -243,7 +222,6 @@
         scrollToBottom();
     }
 
-    // SECUENCIA DE LA CONVERSACIÓN
     async function startChat() {
         await showTyping(1500);
         addReceivedMessage("¡Hola! 👋 Vi que estás buscando una forma de organizar tus partidas de bingo sin tanto estrés.");
@@ -254,14 +232,12 @@
         await showTyping(2500);
         addReceivedMessage("Antes de darte los detalles, respóndeme mentalmente estas 3 preguntas:<br><br>1️⃣ ¿Pierdes tiempo revisando cartones manualmente?<br>2️⃣ ¿Te gustaría que el sistema cante las balotas automáticamente con voz real?<br>3️⃣ ¿Quieres proyectar una imagen 100% profesional para atraer más jugadores?");
 
-        // Mostrar botones paso 1 fijos en el footer
         setTimeout(() => {
             document.getElementById('options-step-1').style.display = 'flex';
             scrollToBottom();
         }, 500);
     }
 
-    // Lógica cuando el usuario hace clic en los botones
     async function userReply(step) {
         if(step === 1) {
             document.getElementById('options-step-1').style.display = 'none';
@@ -298,7 +274,6 @@
             await showTyping(2500);
             addReceivedMessage("Si estás listo para asegurar tu licencia por los <strong>$60.000 COP</strong> o tienes alguna duda, toca el botón de abajo y hablemos por mi WhatsApp personal. 👇");
 
-            // Mostrar botón final fijo en el footer
             setTimeout(() => {
                 document.getElementById('final-footer').style.display = 'block';
                 scrollToBottom();
@@ -306,7 +281,6 @@
         }
     }
 
-    // Iniciar la magia cuando carga la página
     window.onload = () => {
         setTimeout(startChat, 1000);
     };
