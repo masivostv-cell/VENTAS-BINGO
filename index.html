@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
     <title>Chat - Asesor de Bingo</title>
     <style>
         :root {
@@ -15,16 +18,31 @@
             --action-btn: #25D366;
         }
 
-        /* Usamos height 100% absoluto para evitar el problema de la barra del navegador móvil */
+        /* Asegurarnos de que los bordes y paddings no alteren los tamaños */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Uso de 100dvh para adaptarse a las barras del navegador en móviles */
         body, html {
-            margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif;
-            background-color: #f0f0f0; height: 100%; overflow: hidden; position: fixed; width: 100%;
+            margin: 0; 
+            padding: 0; 
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #f0f0f0; 
+            height: 100%; /* Fallback */
+            height: 100dvh; /* Altura dinámica real */
+            overflow: hidden; 
         }
 
         /* Contenedor principal imitando un teléfono */
         .phone-container {
-            max-width: 500px; margin: 0 auto; background-color: var(--wa-bg);
-            height: 100%; display: flex; flex-direction: column; position: relative;
+            max-width: 500px; 
+            margin: 0 auto; 
+            background-color: var(--wa-bg);
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            position: relative;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
             background-repeat: repeat;
@@ -107,23 +125,26 @@
         /* FOOTER DE BOTONES FIJO Y VISIBLE SIEMPRE */
         .chat-footer {
             flex-shrink: 0;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
-            padding: 15px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            /* Aumentamos el padding inferior para separar el botón del borde del teléfono */
+            padding: 15px 15px 25px 15px; 
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
             z-index: 10;
-            min-height: 20px; /* Espacio mínimo si no hay botones aún */
+            min-height: 20px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
+            border-top: 1px solid #e0e0e0;
         }
 
         /* Botones de acción */
         .options-container { display: none; flex-direction: column; gap: 10px; width: 100%; animation: popIn 0.3s ease-out forwards; }
         .option-btn {
             width: 100%; background-color: #fff; border: 2px solid var(--action-btn); color: var(--action-btn);
-            padding: 15px; border-radius: 25px; font-size: 16px; font-weight: bold;
+            padding: 16px; border-radius: 25px; font-size: 16px; font-weight: bold;
             text-align: center; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            -webkit-tap-highlight-color: transparent;
         }
         .option-btn:active, .option-btn:hover { background-color: var(--action-btn); color: white; transform: scale(0.98); }
 
@@ -133,6 +154,7 @@
             text-decoration: none; padding: 18px 0; border-radius: 25px;
             font-size: 16px; font-weight: bold; text-align: center; box-sizing: border-box;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+            -webkit-tap-highlight-color: transparent;
         }
         .btn-whatsapp-real:active { transform: scale(0.98); }
     </style>
