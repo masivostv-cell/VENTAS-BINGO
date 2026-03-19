@@ -2,490 +2,272 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software de Bingo Profesional | Oferta Especial</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,800;0,900;1,400&display=swap" rel="stylesheet">
-
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        
-        // REEMPLAZA ESTO CON TU ID DE PIXEL REAL
-        fbq('init', 'TU_PIXEL_ID_AQUI'); 
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=TU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
-    /></noscript>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Chat - Asesor de Bingo</title>
     <style>
         :root {
-            /* Paleta de colores mejorada e impactante */
-            --primary: #4361ee; /* Azul vibrante, genera confianza */
-            --secondary: #0b0914; /* Oscuro muy elegante */
-            --success: #00f58d; /* Verde neón para botones de acción */
-            --dark: #1b1b2f;
-            --light: #f4f7f6;
-            --accent: #fca311; /* Naranja/Dorado para resaltar alertas */
+            --wa-header: #075E54;
+            --wa-bg: #E5DDD5;
+            --wa-received: #FFFFFF;
+            --wa-sent: #DCF8C6;
+            --wa-text: #303030;
+            --wa-time: #999999;
+            --action-btn: #25D366;
         }
 
-        body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: var(--light); color: var(--dark); line-height: 1.6; }
-        body { padding-top: 50px; } 
-        .container { max-width: 950px; margin: 0 auto; padding: 20px; }
-        
-        /* BANNER DINÁMICO URGENTE */
-        .sticky-banner { position: fixed; top: 0; left: 0; width: 100%; background: linear-gradient(90deg, var(--primary), #2740a6); color: #fff; z-index: 9999; padding: 12px 0; font-size: 1.1em; font-weight: 800; overflow: hidden; white-space: nowrap; box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4); border-bottom: 2px solid var(--accent);}
-        .marquee-content { display: inline-block; animation: scrollText 20s linear infinite; }
-        .banner-timer { color: #000; background-color: var(--accent); padding: 4px 12px; border-radius: 4px; margin: 0 10px; font-family: 'Courier New', monospace; font-size: 1.3em; font-weight: 900; box-shadow: 0 0 10px rgba(252, 163, 17, 0.8); }
-        @keyframes scrollText { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
-
-        /* HERO SECTION PREMIUM */
-        .hero-wrapper { background: var(--secondary); color: white; padding: 50px 20px; border-radius: 0 0 50px 50px; margin-top: -20px; margin-bottom: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); text-align: center; }
-        .hero-wrapper h1 { color: white; font-size: 3em; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; letter-spacing: -1px; line-height: 1.2; }
-        .hero-wrapper h1 span { color: var(--accent); }
-        .hero-wrapper .subtitle { font-size: 1.3em; color: #a0a0b0; margin: 0 auto 35px; max-width: 800px; font-weight: 400; }
-        
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; margin: 0 auto 30px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); max-width: 850px; border: 3px solid #333; transition: border-color 0.3s; }
-        .video-container:hover { border-color: var(--primary); }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        
-        h2 { color: var(--secondary); margin-top: 50px; font-weight: 800; border-bottom: 4px solid var(--primary); padding-bottom: 10px; display: inline-block; }
-        .product-image { width: 100%; max-width: 800px; height: auto; display: block; margin: 40px auto; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 1px solid #eaeaea; transition: transform 0.4s ease; }
-        .product-image:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
-
-        /* SECCIÓN OFERTA Y ESCASEZ */
-        .price-offer { background: #fff; border: 3px solid var(--primary); border-radius: 20px; padding: 40px 20px; text-align: center; margin: 50px auto; max-width: 700px; position: relative; box-shadow: 0 20px 40px rgba(67, 97, 238, 0.1); }
-        .offer-badge { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 10px 30px; border-radius: 30px; font-weight: 900; font-size: 1.2em; animation: flash 2s infinite; white-space: nowrap; text-transform: uppercase; box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4); }
-        .price-old { font-size: 1.6em; color: #ef4444; text-decoration: line-through; font-weight: 800; display: block; margin-top: 15px; margin-bottom: -10px; }
-        .price-now { font-size: 4em; color: var(--primary); font-weight: 900; display: block; margin-bottom: 5px; line-height: 1.1; letter-spacing: -1px; }
-        .offer-subtitle { font-weight: 800; color: var(--secondary); font-size: 1.5em; margin-bottom: 10px; }
-        .offer-desc { color: #555; font-weight: 600; margin-top: 5px; font-size: 1.2em; }
-        
-        .scarcity-alert { background: #fff8e1; color: #b7790f; padding: 15px; border-radius: 10px; font-weight: 600; font-size: 1.1em; display: inline-block; margin-top: 20px; border: 1px solid #ffeeba; }
-        .scarcity-alert b { color: #d32f2f; font-weight: 900; font-size: 1.2em; }
-        
-        @keyframes flash { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.03); } }
-
-        /* GARANTÍA */
-        .guarantee-box { display: flex; align-items: center; justify-content: center; background: white; border-left: 6px solid var(--accent); border-radius: 12px; padding: 30px; margin: 40px auto; gap: 25px; max-width: 800px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .guarantee-icon { width: 70px; height: 70px; flex-shrink: 0; }
-        .guarantee-text h3 { margin: 0; color: var(--secondary); font-size: 1.5em; font-weight: 800; text-transform: uppercase; }
-        .guarantee-text p { margin: 8px 0 0; color: #666; font-size: 1.05em; }
-
-        /* TESTIMONIOS */
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 50px 0; }
-        .testimonial-card { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: transform 0.3s; position: relative; }
-        .testimonial-card::before { content: '"'; position: absolute; top: 10px; right: 20px; font-size: 4em; color: rgba(67, 97, 238, 0.1); font-family: serif; font-weight: bold; }
-        .testimonial-card:hover { transform: translateY(-8px); }
-        .stars { color: var(--accent); font-size: 1.5em; margin-bottom: 15px; }
-        .testimonial-card p { font-style: italic; color: #555; margin-bottom: 20px; font-size: 1.05em; line-height: 1.7; }
-        .testimonial-author { font-weight: 800; color: var(--secondary); font-size: 1em; text-transform: uppercase; }
-
-        /* TARJETAS DE ESPECIFICACIONES */
-        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px; }
-        .spec-card { background: white; padding: 35px; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border-top: 4px solid var(--primary); }
-        .spec-card h3 { color: var(--secondary); margin-top: 0; font-weight: 800; }
-        .spec-card ul { padding-left: 20px; color: #555; }
-        .spec-card li { margin-bottom: 15px; font-size: 1.05em; }
-        
-        .compatibility-box { background: var(--secondary); color: white; padding: 40px; border-radius: 16px; text-align: center; font-size: 1.2em; margin: 60px auto; box-shadow: 0 15px 35px rgba(0,0,0,0.2); max-width: 800px; }
-        .compatibility-box span { font-size: 1.8em; display: block; margin-bottom: 15px; color: var(--success); font-weight: 900; }
-        
-        @media(max-width: 768px) { .specs-grid { grid-template-columns: 1fr; } .guarantee-box { flex-direction: column; text-align: center; } .hero-wrapper h1 { font-size: 2.2em; } .price-now { font-size: 2.5em; } }
-
-        /* BOTONES CTA Y WHATSAPP FLOTANTE */
-        .cta-container { text-align: center; margin: 50px 0; }
-        .cta-button { cursor: pointer; display: inline-block; background: var(--success); color: var(--secondary); text-decoration: none; padding: 22px 50px; font-size: 1.4em; font-weight: 900; border-radius: 50px; text-transform: uppercase; box-shadow: 0 10px 25px rgba(0, 245, 141, 0.4); transition: all 0.3s ease; border: none; letter-spacing: 0.5px; }
-        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 245, 141, 0.6); background: #00e080; }
-        
-        /* BOTÓN DE PRUEBA ALTERNATIVO - MEJORADO */
-        .trial-btn {
-            display: inline-block;
-            background: transparent;
-            color: var(--primary) !important;
-            text-decoration: none;
-            padding: 16px 35px;
-            font-size: 1.1em;
-            font-weight: 800;
-            border-radius: 50px;
-            text-transform: uppercase;
-            margin-top: 20px;
-            border: 2px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-        .trial-btn:hover {
-            background: var(--primary);
-            color: white !important;
-            transform: translateY(-3px);
+        body, html {
+            margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif;
+            background-color: #f0f0f0; height: 100vh; overflow: hidden;
         }
 
-        .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); }
-        .whatsapp-icon { width: 38px; height: 38px; fill: white; }
+        /* Contenedor principal imitando un teléfono */
+        .phone-container {
+            max-width: 500px; margin: 0 auto; background-color: var(--wa-bg);
+            height: 100vh; display: flex; flex-direction: column; position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            background-repeat: repeat;
+        }
 
-        /* MODALES */
-        .modal-overlay { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(11, 9, 20, 0.9); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
-        .modal-content { background-color: #fff; padding: 45px; border-radius: 24px; width: 90%; max-width: 500px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5); text-align: left; }
-        .close-modal { position: absolute; top: 15px; right: 25px; color: #999; font-size: 32px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .close-modal:hover { color: var(--secondary); }
-        .modal-content h2 { color: var(--secondary); margin-top: 0; border: none; text-align: center; padding-bottom: 0; font-size: 2.2em; font-weight: 900; }
-        .modal-content p.form-subtitle { text-align: center; color: #666; margin-bottom: 30px; font-size: 1.05em; }
+        /* Cabecera estilo WhatsApp */
+        .chat-header {
+            background-color: var(--wa-header); color: white; padding: 12px 15px;
+            display: flex; align-items: center; z-index: 10;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .profile-pic {
+            width: 40px; height: 40px; background-color: #ccc; border-radius: 50%;
+            margin-right: 15px; background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712109.png');
+            background-size: cover; background-position: center;
+        }
+        .header-info h2 { margin: 0; font-size: 16px; font-weight: 600; }
+        .header-info p { margin: 2px 0 0; font-size: 12px; color: #d1f4cc; }
+
+        /* Área de mensajes */
+        .chat-body {
+            flex: 1; overflow-y: auto; padding: 20px 15px;
+            display: flex; flex-direction: column; scroll-behavior: smooth;
+        }
+
+        /* Burbujas de chat */
+        .message {
+            max-width: 85%; margin-bottom: 12px; padding: 10px 12px;
+            border-radius: 8px; font-size: 14.5px; line-height: 1.4; color: var(--wa-text);
+            position: relative; animation: popIn 0.3s ease-out forwards;
+            opacity: 0; transform: translateY(10px);
+        }
+        @keyframes popIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .received {
+            background-color: var(--wa-received); align-self: flex-start;
+            border-top-left-radius: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .received::before {
+            content: ""; position: absolute; top: 0; left: -10px;
+            border-style: solid; border-width: 0 10px 10px 0;
+            border-color: transparent var(--wa-received) transparent transparent;
+        }
+
+        .sent {
+            background-color: var(--wa-sent); align-self: flex-end;
+            border-top-right-radius: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .sent::before {
+            content: ""; position: absolute; top: 0; right: -10px;
+            border-style: solid; border-width: 10px 10px 0 0;
+            border-color: var(--wa-sent) transparent transparent transparent;
+        }
+
+        .message img {
+            max-width: 100%; border-radius: 6px; margin-top: 5px;
+            display: block; border: 1px solid #eaeaea;
+        }
         
-        /* MODAL EXIT INTENT */
-        .exit-modal-content { text-align: center; border-top: 8px solid var(--accent); }
-        .exit-btn { display: block; background: var(--accent); color: var(--secondary); padding: 20px; font-size: 1.2em; font-weight: 900; border-radius: 12px; text-decoration: none; text-transform: uppercase; margin-top: 25px; box-shadow: 0 8px 20px rgba(252, 163, 17, 0.3); transition: transform 0.2s; }
-        .exit-btn:hover { transform: translateY(-3px); background: #e5940f; }
+        .time {
+            display: block; font-size: 10px; color: var(--wa-time);
+            text-align: right; margin-top: 4px; float: right; margin-left: 10px;
+        }
 
-        .form-group { margin-bottom: 22px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--secondary); font-size: 0.95em; }
-        .form-group input, .form-group select { width: 100%; padding: 16px; border: 2px solid #e2e8f0; border-radius: 10px; box-sizing: border-box; font-size: 16px; font-family: inherit; transition: 0.3s; background: #f8fafc; }
-        .form-group input:focus, .form-group select:focus { border-color: var(--primary); outline: none; background: white; box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1); }
-        .phone-group { display: flex; gap: 10px; }
-        .phone-prefix { width: 35% !important; background-color: #e2e8f0 !important; color: #475569; text-align: center; font-weight: bold; cursor: not-allowed; border-color: #cbd5e1 !important; }
-        .phone-number { width: 65% !important; }
-        .submit-btn { width: 100%; background: var(--primary); color: white; padding: 20px; font-size: 1.2em; font-weight: 800; border: none; border-radius: 10px; cursor: pointer; text-transform: uppercase; transition: transform 0.2s, background 0.2s; box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3); letter-spacing: 0.5px; }
-        .submit-btn:hover { transform: translateY(-2px); background: #324ccc; }
-        .success-message { display: none; text-align: center; background-color: #ecfdf5; color: #065f46; padding: 35px 25px; border-radius: 16px; border: 2px solid #a7f3d0; font-size: 1.2em; line-height: 1.5; }
-        .success-message strong { display: block; font-size: 1.4em; margin-bottom: 15px; color: #047857; }
+        /* Formato de texto */
+        strong { font-weight: 600; }
+        .price-strike { text-decoration: line-through; color: #888; font-size: 0.9em; }
+        .price-highlight { color: #d32f2f; font-weight: bold; font-size: 1.2em; }
+
+        /* Indicador de escribiendo */
+        .typing { display: none; align-self: flex-start; background: var(--wa-received); padding: 12px 15px; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+        .typing .dot { display: inline-block; width: 6px; height: 6px; background-color: #999; border-radius: 50%; margin-right: 3px; animation: bounce 1.3s linear infinite; }
+        .typing .dot:nth-child(2) { animation-delay: -1.1s; }
+        .typing .dot:nth-child(3) { animation-delay: -0.9s; margin-right: 0; }
+        @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
+
+        /* Botones de acción (Quick Replies) */
+        .options-container { display: none; flex-direction: column; gap: 10px; margin-top: 10px; animation: popIn 0.3s ease-out forwards; }
+        .option-btn {
+            background-color: #fff; border: 2px solid var(--action-btn); color: var(--action-btn);
+            padding: 12px; border-radius: 20px; font-size: 15px; font-weight: bold;
+            text-align: center; cursor: pointer; transition: 0.2s;
+        }
+        .option-btn:hover { background-color: var(--action-btn); color: white; }
+
+        /* Botón final fijo a WhatsApp real */
+        .footer-action {
+            display: none; background: #fff; padding: 15px; text-align: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 10;
+        }
+        .btn-whatsapp-real {
+            display: block; width: 100%; background: var(--action-btn); color: white;
+            text-decoration: none; padding: 15px 0; border-radius: 25px;
+            font-size: 16px; font-weight: bold; box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
     </style>
 </head>
 <body>
 
-<div class="sticky-banner">
-    <div class="marquee-content">
-        ⚡ ¡ALERTA! OFERTA ESPECIAL DE LANZAMIENTO - LICENCIA VITALICIA - LA OFERTA EXPIRA EN: <span class="banner-timer"><span id="minutes">15</span>:<span id="seconds">00</span></span> ⏳ ¡ASEGURA TU LICENCIA HOY! ⚡
-    </div>
-</div>
-
-<div class="hero-wrapper">
-    <div class="container" style="padding: 0;">
-        <h1>Automatiza tus Partidas de Bingo como un Profesional <br><span>(Paga 1 Sola Vez)</span></h1>
-        <p class="subtitle">La herramienta definitiva para crear cartones, cantar balotas automáticamente y detectar ganadores en tiempo real sin estrés.</p>
-
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/WbDZ-YosFic?autoplay=0" title="Demostración del Software" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <button class="cta-button open-modal-btn" style="margin-top: 15px;">¡QUIERO MI LICENCIA AHORA!</button>
-        <br>
-        <a href="https://jmanuelp92-lgtm.github.io/PRUEBABINGO/" class="trial-btn" target="_blank">Probar Versión GRATIS Aquí</a>
-    </div>
-</div>
-
-<div class="container">
-    <div class="price-offer">
-        <span class="offer-badge">🚨 OFERTA POR TIEMPO LIMITADO 🚨</span>
-        <span class="price-old">Antes $140.000 COP</span>
-        <span class="price-now">$60.000 COP</span>
-        <div class="offer-subtitle">¡Obtén tu Licencia Vitalicia Hoy!</div>
-        <div class="offer-desc">Acceso completo de por vida. Sin mensualidades ocultas ni renovaciones.</div>
-        
-        <div class="scarcity-alert">
-            🔥 ¡Atención! Solo quedan <b>3 cupos</b> para adquirir esta promoción.
+<div class="phone-container">
+    <div class="chat-header">
+        <div class="profile-pic"></div>
+        <div class="header-info">
+            <h2>Soporte Bingo PRO</h2>
+            <p id="status-text">en línea</p>
         </div>
     </div>
 
-    <div class="guarantee-box">
-        <img src="https://cdn-icons-png.flaticon.com/512/3532/3532138.png" alt="Garantía" class="guarantee-icon">
-        <div class="guarantee-text">
-            <h3>🛡️ Garantía Blindada de 7 Días</h3>
-            <p>Prueba el software en tus eventos. Si en 7 días sientes que no es la herramienta perfecta para ti, te devolvemos tu dinero de inmediato y sin preguntas molestas.</p>
+    <div class="chat-body" id="chat-body">
+        <div class="typing" id="typing-indicator">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
         </div>
     </div>
 
-    <div style="text-align: center;">
-        <h2>Lo que dicen nuestros clientes</h2>
-    </div>
-    
-    <div class="testimonials-grid">
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>Increíble herramienta. Antes tardábamos mucho revisando los cartones manualmente, ahora el sistema nos avisa quién ganó al instante. ¡100% recomendado para eventos!</p>
-            <span class="testimonial-author">— Carlos R.</span>
-        </div>
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>La función de cantar los números con voz es genial, le da un toque muy profesional al juego. Además, funciona perfecto desde el navegador de mi tablet.</p>
-            <span class="testimonial-author">— María G.</span>
-        </div>
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>Buscaba algo potente pero robusto y este software superó por mucho mis expectativas. Lo mejor de todo es que adquieres tu licencia y listo.</p>
-            <span class="testimonial-author">— Juan P.</span>
-        </div>
+    <div style="padding: 0 15px 15px;" id="options-step-1" class="options-container">
+        <button class="option-btn" onclick="userReply(1)">¡Sí, me pasa todo eso! 🙋‍♂️</button>
     </div>
 
-    <img src="imapag1.png" class="product-image" alt="Interfaz Principal del Software de Bingo">
-
-    <div style="text-align: center;">
-        <h2>Especificaciones Técnicas y Funcionales</h2>
-    </div>
-    <div class="specs-grid">
-        <div class="spec-card">
-            <h3>1. Control de Juego y Tablero</h3>
-            <ul>
-                <li><strong>Tablero Virtual Completo:</strong> Visualización gráfica de las 75 balotas.</li>
-                <li><strong>Sorteo Manual:</strong> Selección de balotas por clic.</li>
-                <li><strong>Modo Automático:</strong> Sistema con temporizador programable.</li>
-            </ul>
-        </div>
-        <div class="spec-card">
-            <h3>2. Audio y Multimedia</h3>
-            <ul>
-                <li><strong>Sistema de Voz Integrado:</strong> Audio nativo para "cantar" números automáticamente.</li>
-                <li><strong>Control de Sonido:</strong> Botón dedicado ágil para activar/desactivar.</li>
-            </ul>
-        </div>
+    <div style="padding: 0 15px 15px;" id="options-step-2" class="options-container">
+        <button class="option-btn" onclick="userReply(2)">¡Me encanta! ¿Cómo funciona? 🤩</button>
     </div>
 
-    <img src="imapag2.png" class="product-image" alt="Gestión de Cartones y Premios">
-
-    <div class="specs-grid">
-        <div class="spec-card">
-            <h3>3. Gestión de Figuras y Premios</h3>
-            <ul>
-                <li><strong>Editor de Figuras:</strong> Interfaz visual personalizable de 5x5.</li>
-                <li><strong>Detección de Ganadores:</strong> Escaneo hiper-rápido de cartones activos.</li>
-                <li><strong>Alerta Inteligente:</strong> Notificación visual al instante cuando hay ganador.</li>
-            </ul>
-        </div>
-        <div class="spec-card">
-            <h3>4. Cartones y Seriales</h3>
-            <ul>
-                <li><strong>Base de Datos Flexible:</strong> Manejo masivo de cartones.</li>
-                <li><strong>Generador Inteligente:</strong> Algoritmo estricto con las reglas del Bingo.</li>
-                <li><strong>Exportación Lista:</strong> Descarga lotes de cartones en alta calidad (.png).</li>
-            </ul>
-        </div>
-    </div>
-
-    <img src="imapag3.png" class="product-image" alt="Auditoría y Seguridad del Sistema">
-
-    <div class="specs-grid" style="grid-template-columns: 1fr;">
-        <div class="spec-card" style="text-align: center;">
-            <h3>5. Auditoría Total y Seguridad</h3>
-            <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-                <li>🔒 Buscador de cartones por ID</li>
-                <li>🔒 Vista de casillas faltantes para ganar</li>
-                <li>🔒 Importación/Exportación de Respaldo (JSON)</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="compatibility-box">
-        <span>✅ 100% COMPATIBLE</span>
-        Se ejecuta directamente en tu navegador web. Úsalo en <strong>Windows, macOS, Linux, Android o iOS</strong>. ¡Sin instalaciones complicadas ni descargas pesadas!
-    </div>
-
-    <div class="cta-container">
-        <button class="cta-button open-modal-btn">OBTENER MI SOFTWARE AHORA</button>
-        <br>
-        <a href="https://jmanuelp92-lgtm.github.io/PRUEBABINGO/" class="trial-btn" target="_blank">JUGAR DEMO GRATUITA</a>
-        <p style="margin-top: 20px; color: #888; font-size: 1.1em; font-weight: 600;">🔒 Compra 100% Segura y Garantizada</p>
-    </div>
-</div>
-
-<a href="https://wa.me/573503875753?text=Hola,%20vengo%20de%20la%20landing%20page%20y%20quiero%20aprovechar%20la%20oferta%20del%20software%20de%20bingo%20por%2060.000" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Escríbenos por WhatsApp">
-    <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-</a>
-
-<div id="purchaseModal" class="modal-overlay">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModalBtn">&times;</span>
-        
-        <div id="formContainer">
-            <h2>Paso Final</h2>
-            <p class="form-subtitle">Ingresa tus datos para registrar tu licencia y recibir las instrucciones de acceso inmediato.</p>
-            
-            <form id="leadForm">
-                <div class="form-group">
-                    <label for="userName">Nombre Completo:</label>
-                    <input type="text" id="userName" name="userName" required placeholder="Ej. Juan Pérez">
-                </div>
-                
-                <div class="form-group">
-                    <label for="userCountry">País:</label>
-                    <select id="userCountry" name="userCountry" required>
-                        <option value="" data-prefix="">Selecciona tu país...</option>
-                        <option value="Colombia" data-prefix="+57">Colombia</option>
-                        <option value="México" data-prefix="+52">México</option>
-                        <option value="Argentina" data-prefix="+54">Argentina</option>
-                        <option value="Perú" data-prefix="+51">Perú</option>
-                        <option value="Chile" data-prefix="+56">Chile</option>
-                        <option value="Ecuador" data-prefix="+593">Ecuador</option>
-                        <option value="Venezuela" data-prefix="+58">Venezuela</option>
-                        <option value="España" data-prefix="+34">España</option>
-                        <option value="EEUU" data-prefix="+1">Estados Unidos</option>
-                        <option value="Otro" data-prefix="+">Otro</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="userPhone">Teléfono (WhatsApp):</label>
-                    <div class="phone-group">
-                        <input type="text" id="phonePrefix" class="phone-prefix" readonly placeholder="+XX">
-                        <input type="tel" id="userPhone" class="phone-number" name="userPhone" required placeholder="Número de teléfono">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="userEmail">Correo Electrónico:</label>
-                    <input type="email" id="userEmail" name="userEmail" required placeholder="tu@correo.com">
-                </div>
-
-                <button type="submit" id="submitBtn" class="submit-btn">SOLICITAR ACCESO >></button>
-            </form>
-        </div>
-
-        <div id="successMessage" class="success-message">
-            <strong>¡Excelente! Tus datos están registrados.</strong>
-            Redirigiendo a WhatsApp de manera segura para finalizar...
-        </div>
-    </div>
-</div>
-
-<div id="exitModal" class="modal-overlay">
-    <div class="modal-content exit-modal-content">
-        <span class="close-modal" id="closeExitModalBtn">&times;</span>
-        <h2 style="color: var(--accent); font-size: 2.2em; margin-bottom: 5px;">¡ESPERA! 🛑</h2>
-        <h3 style="margin-top: 0; color: var(--secondary); font-size: 1.4em;">¿Aún no estás convencido?</h3>
-        <p style="font-size: 1.1em; color: #555; margin-bottom: 25px;">No te vayas sin probar la potencia de nuestra herramienta. Descarga ahora una <strong>versión de prueba 100% GRATIS</strong> y compruébalo tú mismo.</p>
-        
-        <a href="https://jmanuelp92-lgtm.github.io/PRUEBABINGO/" target="_blank" class="exit-btn">
-            ⬇️ PROBAR VERSIÓN GRATIS
+    <div class="footer-action" id="final-footer">
+        <a href="https://wa.me/573503875753?text=Hola,%20acabo%20de%20ver%20la%20información%20y%20quiero%20comprar%20el%20Software%20de%20Bingo%20por%20$60.000." class="btn-whatsapp-real" target="_blank">
+            💬 IR A WHATSAPP PARA COMPRAR
         </a>
-        <p style="margin-top: 15px; font-size: 0.9em; color: #888;">Seguro y libre de virus. Úsalo en tu próximo evento.</p>
     </div>
 </div>
 
 <script>
-    // 1. Reloj del Banner
-    function startTimer(duration, displayMinutes, displaySeconds) {
-        let timer = duration, minutes, seconds;
-        setInterval(function () {
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-            displayMinutes.textContent = minutes;
-            displaySeconds.textContent = seconds;
-            if (--timer < 0) { timer = 0; }
-        }, 1000);
+    const chatBody = document.getElementById('chat-body');
+    const typingIndicator = document.getElementById('typing-indicator');
+    const statusText = document.getElementById('status-text');
+
+    function getCurrentTime() {
+        const now = new Date();
+        return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
     }
 
-    // 2. Lógica del Modal de Compra Principal
-    const purchaseModal = document.getElementById("purchaseModal");
-    const openBtns = document.querySelectorAll(".open-modal-btn");
-    const closeBtn = document.getElementById("closeModalBtn");
-    const formContainer = document.getElementById("formContainer");
-    const successMessage = document.getElementById("successMessage");
-    const leadForm = document.getElementById("leadForm");
-    const countrySelect = document.getElementById("userCountry");
-    const phonePrefix = document.getElementById("phonePrefix");
-    const submitBtn = document.getElementById("submitBtn");
-
-    openBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            purchaseModal.style.display = "flex";
-            formContainer.style.display = "block";
-            successMessage.style.display = "none";
-            leadForm.reset();
-            phonePrefix.value = "";
-            submitBtn.textContent = "SOLICITAR ACCESO >>";
-            submitBtn.disabled = false;
-        });
-    });
-
-    closeBtn.addEventListener("click", () => purchaseModal.style.display = "none");
-
-    // 3. Lógica del Modal de Intención de Salida (Exit Intent)
-    const exitModal = document.getElementById("exitModal");
-    const closeExitBtn = document.getElementById("closeExitModalBtn");
-    let exitModalTriggered = false;
-
-    // Detectar cuando el cursor sale por la parte superior (en escritorio)
-    document.addEventListener("mouseleave", function(e) {
-        if (e.clientY < 0 && !exitModalTriggered) {
-            exitModal.style.display = "flex";
-            exitModalTriggered = true; 
-        }
-    });
-
-    closeExitBtn.addEventListener("click", () => exitModal.style.display = "none");
-
-    // Cerrar modales si se hace clic afuera del contenido
-    window.addEventListener("click", (e) => { 
-        if (e.target === purchaseModal) purchaseModal.style.display = "none"; 
-        if (e.target === exitModal) exitModal.style.display = "none";
-    });
-
-    // 4. Lógica de Formularios y Envío
-    countrySelect.addEventListener("change", function() {
-        phonePrefix.value = this.options[this.selectedIndex].getAttribute("data-prefix") || "";
-    });
-
-    leadForm.addEventListener("submit", function(e) {
-        e.preventDefault(); 
-        
-        const urlScript = "https://script.google.com/macros/s/AKfycbzqzR7K-6aGmuL_5sBg-lWLM1mbT1xLC9PNfVt3nP7m3YNDSgk5-xasCwCq6afFhhUD/exec";
-        
-        submitBtn.textContent = "Procesando...";
-        submitBtn.disabled = true;
-
-        const nombre = document.getElementById("userName").value;
-        const pais = document.getElementById("userCountry").value;
-        const correo = document.getElementById("userEmail").value;
-        const telefonoCompleto = phonePrefix.value + document.getElementById("userPhone").value;
-
-        const formData = new FormData();
-        formData.append("userName", nombre);
-        formData.append("userCountry", pais);
-        formData.append("userEmail", correo);
-        formData.append("fullPhone", telefonoCompleto);
-
-        fetch(urlScript, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: formData
-        }).then(() => {
-            // Se eliminó el registro de valor (value) en el Pixel para que no rastree precios
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead', {
-                    content_name: 'Software de Bingo'
-                });
-            }
-
-            formContainer.style.display = "none";
-            successMessage.style.display = "block";
-
-            // NUEVO NÚMERO DE WHATSAPP ACTUALIZADO EN EL SCRIPT CON TEXTO SIN PRECIO
+    // Función para simular que el asesor está escribiendo
+    function showTyping(duration) {
+        return new Promise(resolve => {
+            statusText.innerText = "escribiendo...";
+            typingIndicator.style.display = "flex";
+            chatBody.appendChild(typingIndicator); // Mueve el indicador al final
+            chatBody.scrollTop = chatBody.scrollHeight;
+            
             setTimeout(() => {
-                const mensajeWa = `Hola, mi nombre es ${nombre}, soy de ${pais}. Mi correo es ${correo} y quiero adquirir el Software de Bingo por la oferta de 60.000.`;
-                const linkWa = `https://wa.me/573503875753?text=${encodeURIComponent(mensajeWa)}`;
-                window.location.href = linkWa;
-            }, 2000);
-
-        }).catch(error => {
-            alert("Hubo un problema de conexión. Por favor, intenta de nuevo.");
-            submitBtn.textContent = "SOLICITAR ACCESO >>";
-            submitBtn.disabled = false;
+                typingIndicator.style.display = "none";
+                statusText.innerText = "en línea";
+                resolve();
+            }, duration);
         });
-    });
+    }
 
-    window.onload = function () {
-        let timeInSeconds = 15 * 60;
-        let displayMin = document.querySelector('#minutes');
-        let displaySec = document.querySelector('#seconds');
-        startTimer(timeInSeconds, displayMin, displaySec);
+    // Función para agregar un mensaje del asesor
+    function addReceivedMessage(htmlContent) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'message received';
+        msgDiv.innerHTML = htmlContent + `<span class="time">${getCurrentTime()}</span>`;
+        chatBody.appendChild(msgDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // Función para agregar un mensaje del usuario
+    function addSentMessage(text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'message sent';
+        msgDiv.innerHTML = text + `<span class="time">${getCurrentTime()}</span>`;
+        chatBody.appendChild(msgDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // SECUENCIA DE LA CONVERSACIÓN
+    async function startChat() {
+        await showTyping(1500);
+        addReceivedMessage("¡Hola! 👋 Vi que estás buscando una forma de organizar tus partidas de bingo sin tanto estrés.");
+        
+        await showTyping(2000);
+        addReceivedMessage("Tengo una excelente noticia para ti: por tiempo limitado, bajamos el precio de nuestra licencia vitalicia de <span class='price-strike'>$140.000</span> a solo <span class='price-highlight'>$60.000 COP</span>. ¡Un único pago de por vida! 🎁");
+
+        await showTyping(2500);
+        addReceivedMessage("Antes de darte los detalles, respóndeme mentalmente estas 3 preguntas:<br><br>1️⃣ ¿Pierdes tiempo revisando cartones manualmente?<br>2️⃣ ¿Te gustaría que el sistema cante las balotas automáticamente con voz real?<br>3️⃣ ¿Quieres proyectar una imagen 100% profesional para atraer más jugadores?");
+
+        // Mostrar botones paso 1
+        setTimeout(() => {
+            document.getElementById('options-step-1').style.display = 'flex';
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }, 500);
+    }
+
+    // Lógica cuando el usuario hace clic en los botones
+    async function userReply(step) {
+        if(step === 1) {
+            document.getElementById('options-step-1').style.display = 'none';
+            addSentMessage("¡Sí, me pasa todo eso! 🙋‍♂️");
+            
+            await showTyping(2000);
+            addReceivedMessage("¡Entonces este software es perfecto para ti! 🎯");
+            
+            await showTyping(1500);
+            addReceivedMessage("Mira cómo se ve nuestra interfaz. Súper limpia y fácil de usar:");
+            
+            await showTyping(1000);
+            addReceivedMessage("<img src='imapag1.png' alt='Interfaz del software'>");
+
+            setTimeout(() => {
+                document.getElementById('options-step-2').style.display = 'flex';
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 500);
+        }
+
+        if(step === 2) {
+            document.getElementById('options-step-2').style.display = 'none';
+            addSentMessage("¡Me encanta! ¿Cómo funciona? 🤩");
+
+            await showTyping(3000);
+            addReceivedMessage("Funciona en 3 pasos resumidos:<br><br>📝 <strong>1. Preparas tu juego:</strong> Creas cientos de cartones con un clic.<br>🎤 <strong>2. El sistema habla:</strong> Inicias el sorteo y la voz automática hace el trabajo.<br>🏆 <strong>3. Alerta al instante:</strong> El sistema escanea y te avisa de inmediato si alguien gana, sin revisar a mano.");
+
+            await showTyping(1500);
+            addReceivedMessage("Así gestionas los premios y cartones ganadores:");
+            
+            await showTyping(1000);
+            addReceivedMessage("<img src='imapag2.png' alt='Detección de premios'>");
+
+            await showTyping(2500);
+            addReceivedMessage("Si estás listo para asegurar tu licencia por los <strong>$60.000 COP</strong> o tienes alguna duda, toca el botón de abajo y hablemos por mi WhatsApp personal. 👇");
+
+            // Mostrar botón final fijo
+            setTimeout(() => {
+                document.getElementById('final-footer').style.display = 'block';
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 500);
+        }
+    }
+
+    // Iniciar la magia cuando carga la página
+    window.onload = () => {
+        setTimeout(startChat, 1000);
     };
+
 </script>
 
 </body>
