@@ -3,127 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba Bingo PRO Gratis</title>
+    <title>Bingo PRO | El Software N°1 para tus Partidas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Estilos generales y fondo moderno */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            /* Gradiente oscuro y elegante para resaltar el contenido */
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
-            color: white; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
+        :root {
+            --primary: #25D366; /* Verde WhatsApp */
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
         }
 
-        /* Contenedor principal estilo tarjeta de cristal (Glassmorphism) */
-        .container { 
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
-            padding: 40px 30px; 
-            border-radius: 20px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
-            max-width: 400px; 
-            width: 90%; 
-            text-align: center; 
-            border: 1px solid rgba(255,255,255,0.1); 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle at top right, #1e293b, transparent),
+                              radial-gradient(circle at bottom left, #0f172a, transparent);
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        h1 { font-size: 26px; margin-bottom: 10px; color: #ffffff; line-height: 1.2; }
-        p { font-size: 15px; margin-bottom: 25px; color: #b0c4de; }
-        
-        /* Estilo para la única imagen llamativa */
-        .hero-img { 
-            width: 100%; 
-            border-radius: 12px; 
-            margin-bottom: 25px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+        .container {
+            background-color: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            max-width: 480px;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Nueva clase para la imagen principal */
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 3px solid var(--accent);
             object-fit: cover;
+            max-height: 250px; /* Para asegurar que no ocupe toda la pantalla en móviles */
         }
 
-        /* Estilos del formulario */
-        .form-group { margin-bottom: 18px; text-align: left; }
-        label { display: block; font-size: 13px; margin-bottom: 6px; color: #cfd8dc; font-weight: 600; }
+        .content-section { padding: 30px 25px; text-align: center; }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 15px; color: #ffffff; }
         
-        input { 
-            width: 100%; 
-            padding: 14px; 
-            border: none; 
-            border-radius: 10px; 
-            box-sizing: border-box; 
-            font-size: 15px; 
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            outline: none; 
-            transition: all 0.3s ease; 
-        }
-        input:focus { box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.5); background: #ffffff; }
+        p.subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.5; }
 
-        /* Botón de WhatsApp */
-        .btn-submit { 
-            background: #25D366; 
-            color: white; 
-            border: none; 
-            padding: 16px; 
-            width: 100%; 
-            border-radius: 10px; 
-            font-size: 17px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            transition: transform 0.2s, background 0.3s; 
-            margin-top: 10px; 
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        /* Lista de beneficios */
+        .benefits { text-align: left; margin-bottom: 30px; }
+        .benefits li {
+            list-style: none;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
         }
-        .btn-submit:hover { background: #20ba56; transform: translateY(-2px); }
-        .btn-submit:active { transform: translateY(1px); }
+        .benefits li i { color: var(--primary); margin-right: 10px; font-size: 18px; }
+
+        /* Formulario y Botón */
+        .form-group { text-align: left; margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; margin-bottom: 8px; color: #cbd5e1; font-weight: 600; }
+        
+        .name-input {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .name-input:focus { border-color: var(--primary); background: rgba(255, 255, 255, 0.1); }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4); }
+        .btn-whatsapp:active { transform: translateY(0); }
+
+        .secure-text { font-size: 12px; color: var(--text-muted); margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 5px; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>¿Quieres probar nuestro software de Bingo sin compromiso?</h1>
-        <p>Llena tus datos para recibir tu acceso inmediato y revoluciona tus partidas.</p>
+        <img src="imapag3.png" alt="Interfaz de Bingo PRO" class="header-image">
         
-        <img src="imapag1.png" alt="Interfaz del Software de Bingo" class="hero-img">
-        
-        <form id="leadForm">
-            <div class="form-group">
-                <label for="name">Tu Nombre</label>
-                <input type="text" id="name" placeholder="Ej: Carlos Ramírez" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Tu Teléfono</label>
-                <input type="tel" id="phone" placeholder="Ej: 3001234567" required>
-            </div>
-            <button type="submit" class="btn-submit">Probar Totalmente Gratis</button>
-        </form>
+        <div class="content-section">
+            <span class="badge">Atención Organizadores</span>
+            <h1>Automatiza y Profesionaliza tus Eventos de Bingo</h1>
+            <p class="subtitle">Deja de revisar cartones a mano y evita errores. Descubre cómo nuestro software hace todo el trabajo pesado por ti.</p>
+            
+            <ul class="benefits">
+                <li><i class="fas fa-check-circle"></i> Canta las balotas con voz real automáticamente.</li>
+                <li><i class="fas fa-check-circle"></i> Alerta inmediata de cartones ganadores.</li>
+                <li><i class="fas fa-check-circle"></i> Interfaz profesional y fácil de usar.</li>
+            </ul>
+
+            <form id="infoForm">
+                <div class="form-group">
+                    <label for="userName">¿Cuál es tu nombre?</label>
+                    <input type="text" id="userName" class="name-input" placeholder="Ej: Andrés Gómez" required>
+                </div>
+                
+                <button type="submit" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
+                    Quiero recibir información
+                </button>
+                <p class="secure-text"><i class="fas fa-lock"></i> Tu consulta es 100% confidencial y sin compromiso.</p>
+            </form>
+        </div>
     </div>
 
     <script>
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página se recargue
+        document.getElementById('infoForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
             
-            // Capturar los datos del usuario
-            const name = document.getElementById('name').value.trim();
-            const userPhone = document.getElementById('phone').value.trim();
+            const name = document.getElementById('userName').value.trim();
+            const destinationNumber = "573503875753"; 
             
-            // Número de destino (el tuyo)
-            const destinationNumber = "573124718450"; 
+            // Mensaje que te llegará a ti
+            const message = `¡Hola! Mi nombre es ${name}. Vi la página web y me gustaría recibir más información sobre cómo funciona el Software de Bingo PRO y conocer los precios.`;
             
-            // Construir el mensaje
-            const message = `Hola, mi nombre es ${name} y mi número es ${userPhone}. Quiero probar el software totalmente gratis.`;
+            const whatsappUrl = `https://wa.me/${destinationNumber}?text=${encodeURIComponent(message)}`;
             
-            // Codificar el texto para que funcione en la URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Crear el enlace de WhatsApp
-            const whatsappUrl = `https://wa.me/${destinationNumber}?text=${encodedMessage}`;
-            
-            // Abrir WhatsApp en una nueva pestaña
             window.open(whatsappUrl, '_blank');
         });
     </script>
